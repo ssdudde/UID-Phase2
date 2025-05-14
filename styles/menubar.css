@@ -9,7 +9,6 @@ body {
     font-family: "Montserrat";
 }
 
-/* Fixed header bar */
 header {
     position: fixed;
     top: 0;
@@ -19,7 +18,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding : 1.5vw 1vw 0vw 1vw;
+    padding : 1vw 1vw 0.3vw 1vw;
     box-sizing: border-box;
     z-index: 100;
 }
@@ -27,6 +26,7 @@ header {
 nav {
     display: flex;
     align-items: center;
+    z-index:25;
 }
 
 #navi {
@@ -87,6 +87,6 @@ hr {
     box-shadow: 0 0 8px rgba(0, 37, 49, 0.922);
     width: 100%;
     position: fixed;
-    top: 10vh; /* Push it below header */
-    z-index: 99;
+    top: 7.8vh; /* Push it below header */
+    z-index: -100;
 }
