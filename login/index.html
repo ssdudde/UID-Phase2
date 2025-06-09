@@ -38,9 +38,14 @@
     <div class="card">
         <p id="picker">Login</p><br>
         <input type="text" id="uname" class="tbox" placeholder="Username or Email"><br>
+        <input type="text" id="email" class="tbox" placeholder="Email" style="display: none;"><br>
         <input type="password" id="pass" class="tbox" placeholder="Password"><br>
-        <p id="chooser"> Don't have an account? Sign Up. </p>
-        <input type="button" value="Login" id="submit" class="button">
+        <input type="password" id="pass2" class="tbox" placeholder="Re-enter Password" style="display: none;"><br>
+        <div style="display:flex;">
+          <p id="chooser"> Don't have an account? Sign Up. </p>
+          <p id="error">Invalid username or password</p>
+        </div>
+        <input type="button" value="Login" id="submit" class="button" onclick="Submit()">
     </div>
 
 </body>

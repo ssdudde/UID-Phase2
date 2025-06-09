@@ -24,7 +24,6 @@ p {
     padding: 0.9em 2em 0.9em 2em;
     width: 65%;
     transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    margin-top: 1.4em;
     border-radius: 2em;
     border: 2px solid blue;
 }
@@ -57,13 +56,23 @@ input:focus {
 
 #chooser {
     font-size: 1em;
-    text-align: right;
-    margin: 1em 8em 4em 0em;
+    position: absolute;
+    right: 0;
+    margin: 0.4em 8em 3.5em 0em;
 }
 
 #chooser:hover {
     color: blue;
     transition-duration: 0.5s;
+}
+
+#error {
+    color: red;
+    font-size: 1em;
+    text-align: left;
+    position: absolute;
+    display: none;
+    margin-left: 8em;
 }
 
 .bg_image {
@@ -80,7 +89,8 @@ input:focus {
 
 .card {
     width: 50%;
-    height: 56vh;
+    min-height: 56vh;
+    height: auto;
     background-color: black;
     border: 5px solid blueviolet;
     border-radius: 2vw;
@@ -95,4 +105,9 @@ input:focus {
     box-shadow: 2.7vw 2.7vw 2vw rgba(0, 0, 20, 0.9);
     transform: scale(1.01);
     transition-duration: 1s;
+}
+
+#submit {
+    margin-bottom: 2em;
+    margin-top: 5em;
 }

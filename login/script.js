@@ -1,3 +1,49 @@
+function Submit() {
+    const currentMode = document.getElementById("picker").innerText;
+
+    if (currentMode === "Login") {
+        const name = document.getElementById("uname").value.trim();
+        const pass = document.getElementById("pass").value.trim();
+        let error = "";
+
+        if (!name) {
+            error = "No username or email entered.";
+            document.getElementById("uname").style.border = "3px solid red";
+        } else if (!pass) {
+            error = "No password entered.";
+            document.getElementById("pass").style.border = "3px solid red";
+        }
+
+        if (error) {
+            document.getElementById("error").style.opacity = "1";
+            document.getElementById("error").style.display = "block";
+            document.getElementById("error").innerText = error;
+            setTimeout(() => {
+               
+                document.getElementById("uname").style.transition = "border-color 1s ease";
+                document.getElementById("error").style.transition = "opacity 1s ease";
+                document.getElementById("error").style.opacity = "0";
+                setTimeout(() => {
+                    document.getElementById("error").style.display = "none";
+                }, 500);
+                
+                document.getElementById("uname").style.border = "2px solid blue";
+                document.getElementById("pass").style.border = "2px solid blue";
+            }, 2000);
+            return;
+        }
+        
+        // Continue with login logic here
+    }
+    const username = document.getElementById("uname").value;
+    const password = document.getElementById("pass").value;
+    const email = document.getElementById("email").value;
+    const password2 = document.getElementById("pass2").value;
+    const errorElement = document.getElementById("error");
+
+
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     const chooser = document.getElementById("chooser");
     chooser.addEventListener("click", function () {
@@ -7,44 +53,25 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("chooser").innerText = "Already have an account? Log in.";
             document.getElementById("submit").value = "Sign Up";
 
-            document.getElementsByClassName("card")[0].style.height = "75vh";
-            document.getElementsByClassName("card")[0].style.marginTop = "15vh";
+            document.getElementsByClassName("card")[0].style.height = "72.5vh";
+            document.getElementsByClassName("tbox")[0].style.marginTop = "15vh";
+            for (let i = 0; i < document.getElementsByClassName("tbox").length; i++) {
+                document.getElementsByClassName("tbox")[i].style.margin = "0.6rem";
+            }
 
-            
             document.getElementById("uname").placeholder = "Username";
-            const newInput = document.createElement("input");
-            newInput.type = "text";
-            newInput.id = "email";
-            newInput.className = "tbox";
-            newInput.placeholder = "Email";
-            newInput.style.opacity = "0";
-            
-            const uname = document.getElementById("uname");
-            uname.parentNode.insertBefore(newInput, uname.nextSibling);
+            document.getElementById("email").placeholder = "Email";
             
             setTimeout(() => {
-                newInput.style.opacity = "1";
-                newInput.style.transition = "opacity 0.5s ease-in";
+                document.getElementById("email").style.display = "inline-block";
             }, 200);
-            
-            
-            const newInput2 = document.createElement("input");
-            newInput2.type = "text";
-            newInput2.id = "password2";
-            newInput2.className = "tbox";
-            newInput2.placeholder = "Re-enter Password";
-            newInput2.style.opacity = "0";
-            
-            const chs = document.getElementById("pass");
-            chs.parentNode.insertBefore(newInput2, chs.nextSibling);
             
             setTimeout(() => {
-                newInput2.style.opacity = "1";
-                newInput2.style.transition = "opacity 0.5s ease-in";
+                document.getElementById("pass2").style.display = "inline-block";
             }, 200);
-            
             
         } else {
+            document.getElementById("uname").placeholder = "Username or Email";
             document.getElementById("picker").innerText = "Login";
             document.getElementById("chooser").innerText = "Don't have an account? Sign Up.";
             document.getElementById("submit").value = "Login";
@@ -53,9 +80,11 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementsByClassName("card")[0].style.marginTop = "0vh";
             document.getElementsByClassName("card")[0].style.margin = "auto";
 
-            document.getElementById("email").remove();
-            document.getElementById("password2").remove();
+            document.getElementById("email").style.display = "none";
+            document.getElementById("pass2").style.display = "none";
+            for (let i = 0; i < document.getElementsByClassName("tbox").length; i++) {
+                document.getElementsByClassName("tbox")[i].style.margin = "0rem";
+            }
         }
-
     });
 });
