@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../styles/menubar.css">
   <link rel="stylesheet" href="home.css">
   <!-- Importing js lib called es-module-shims -->
-  <script async src="https://unpkg.com/es-module-shims@ 1.6.3/dist/es-module-shims.js"></script>
+  <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
   <script type="importmap">
     {
       "imports": {
@@ -19,10 +19,10 @@
     }
   </script>
   <link rel="icon" href="data:,">
-
 </head> 
 
 <body>
+  <!-- NAVIGATION BAR: DO NOT CHANGE THIS SECTION -->
   <header>    
     <a href="#" id="navi">GR</a>
     <nav>
@@ -40,15 +40,38 @@
       <a href="#" id="navi">Contact</a>
       <a href="#" id="navi">Cart</a>
       <a href="#" id="navi">Login</a>
-
     </nav>
   </header>
 
+  <!-- THIS LINE IS YOUR SEPARATOR UNDER THE NAV BAR -->
   <hr>
- 
-  <!-- Optional placeholder content to show scrolling -->
-  <div style="margin-top: 120px; color: white; padding: 20px;">
-  </div>
-    <script type="module" src="script.js"></script>
+
+  <!-- LIMITED SECTION -->
+  <section class="limited-offer">
+    <h2>🔥 Limited Edition</h2>
+    <div class="limited-grid">
+      <div class="limited-keyboard-viewer">
+        <div id="keyboard-container">
+          <canvas id="keyboard-canvas"></canvas>
+        </div>
+      </div>
+      <div class="limited-keyboard-info">
+        <h3>Pro RGB Mechanical Keyboard</h3>
+        <p>
+          Elevate your gameplay with our limited edition mechanical keyboard.<br>
+          <strong>Features:</strong> Hot-swappable switches, dynamic RGB, aircraft-grade aluminum.
+        </p>
+        <span class="limited-badge">LIMITED</span>
+        <button class="buy-now">Buy Now</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="recommendations">
+    <h2>Recommendations</h2>
+    <!-- Your recommendations go here -->
+  </section>
+
+  <script type="module" src="script.js"></script>
 </body>
 </html>
