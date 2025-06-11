@@ -26,7 +26,7 @@
   <header>    
     <a href="#" id="navi">GR</a>
     <nav>
-      <a href="#" id="navi">About</a>
+<a href="#about" class="about-scroll" id="navi">About</a>
       <div class="dropdown">
         <a href="#" id="navi" class="trigger-link">Products</a>
         <div class="dropdown-content">
@@ -62,16 +62,103 @@
           <strong>Features:</strong> Hot-swappable switches, dynamic RGB, aircraft-grade aluminum.
         </p>
         <span class="limited-badge">LIMITED</span>
-        <button class="buy-now">Buy Now</button>
+        <button class="buy-now" on-click="">Buy Now</button>
       </div>
     </div>
+  </section>
+  <section class="best">
+    <h2>✨ The best from the west</h2>
+    <div class="best-grid">
+  <div class="product-card">
+    <img src="images/keyboards/pred_aethon.webp" >
+    <h4>Predator Aethon</h4>
+    <p>Built for gamers who demand both functionality and flair.</p>
+    
+  </div>
+  <div class="product-card">
+    <img src="images/mouses/RazerDeathAdder.jpg" >
+    <h4>Razer Death Adder</h4>
+    <p>The Razer DeathAdder Essential retains the classic ergonomic form that’s been a hallmark of Razer’s legacy. </p>
+    
+  </div>
+  <div class="product-card">
+    <img src="images/consoles/spiderman_ps5.jpg" >
+    <h4>PlayStation 5 Spider-Man 2 </h4>
+    <p>a full game voucher for Marvel's Spider-Man 2 — perfect for fans of the franchise.</p>
+    
+  </div>
+</div>
+
   </section>
 
   <section class="recommendations">
     <h2>Recommendations</h2>
-    <!-- Your recommendations go here -->
+   <div class="recommend-grid">
+  <div class="recommend-card">
+    <h4>Top Seller</h4>
+        <img src="images/consoles/psgow.jpg" >
+    <p>PS4 God Of War – Rewrite the history .</p>
+  </div>
+  <div class="recommend-card">
+    <h4>Editor’s Choice</h4>
+    <img src="images/Monitors/raptor27.jpg">
+    <p>Razer Raptor 27 – The aluminum build, RGB lighting, and cable management system make it a standout on any desk.</p>
+  </div>
+  <div class="recommend-card">
+    <h4>New Arrival</h4>
+    <img src="images/keyboards/Redragon-Shiva-K512-RGB-Mechanical-Keyboard-6.webp">
+    <p>Redragon Shiva – quiet and comfortable typing feel with membrane switches makes it a perfect.</p>
+  </div>
+</div>
   </section>
+  <section class="about-us" id="about">
+  <h2>About Us</h2>
+  <div class="about-content">
+    <p>
+      At <strong>GR</strong>, we don't just sell gaming gear—we live and breathe gaming culture. Born from the passion of pro gamers, designers, and tech enthusiasts, our mission is simple: to deliver elite hardware and unmatched experiences for the gaming community.
+    </p>
 
+    <p>
+      From mechanical keyboards and ultra-fast mice to RGB-packed monitors and next-gen consoles, we carefully curate every product to meet the demands of serious gamers. Whether you're grinding ranked matches or creating immersive battlestations, we've got your six.
+    </p>
+
+    <h3>🎯 Our Mission</h3>
+    <p>
+      Empower every gamer—casual or competitive—with high-performance tools and futuristic aesthetics that help them play at their best, without compromise.
+    </p>
+
+    <h3>🌍 Our Vision</h3>
+    <p>
+      To become the world’s most trusted platform for gaming innovation—where tech, performance, and creativity collide.
+    </p>
+
+    <h3>💡 Core Values</h3>
+    <ul>
+      <li><strong>Innovation:</strong> We embrace the edge. If it’s not bleeding-edge tech, it’s not GR.</li>
+      <li><strong>Quality First:</strong> Every product is tested and reviewed by actual gamers—no shortcuts.</li>
+      <li><strong>Community:</strong> We build with feedback. From streamers to esports pros, your voice shapes our future.</li>
+      <li><strong>Sustainability:</strong> Great gaming shouldn’t cost the planet. We’re committed to eco-conscious sourcing and packaging.</li>
+    </ul>
+
+    <h3>🎮 Why Choose GR?</h3>
+    <p>
+      - Trusted by over 500,000+ gamers worldwide<br>
+      - 24/7 support by real humans (who also game)<br>
+      - Secure checkout, lightning-fast shipping, and exclusive gear you won’t find elsewhere<br>
+      - We're not just a store—we're a squad. And you're invited.
+    </p>
+  </div>
+</section>
   <script type="module" src="script.js"></script>
+  <script>
+  document.querySelector('.about-scroll').addEventListener('click', function (e) {
+  e.preventDefault();
+  const aboutSection = document.getElementById('about');
+  if (aboutSection) {
+    aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+});
+</script>
+
 </body>
 </html>

@@ -73,7 +73,8 @@ input:focus {
     text-align: left;
     position: absolute;
     display: none;
-    margin-left: 8em;
+    left: 7em;
+    margin: 0;
 }
 
 .bg_image {

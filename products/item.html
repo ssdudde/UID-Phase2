@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Products</title>
+  <link rel="stylesheet" href="../styles/menubar.css" />
+  <link rel="stylesheet" href="products1.css" />
+</head>
+<body>
+  <header>
+    <a href="#" id="navi">E-com</a>
+    <nav>
+      <a href="#" id="navi">About</a>
+      <div class="dropdown">
+        <a href="index.html" id="navi" class="trigger-link">Products</a>
+        <div class="dropdown-content">
+          <a href="products.html">Monitors</a>
+          <a href="products.html">Chairs</a>
+          <a href="products.html">Keyboards</a>
+          <a href="products.html">Mouse</a>
+          <a href="products.html">Consoles</a>
+        </div>
+      </div>
+      <a href="#" id="navi">Contact</a>
+     <a href="cart.html" id="navi">Cart</a>
+
+      <a href="#" id="navi">Login</a>
+    </nav>
+  </header>
+
+  <hr>
+  <div id="item-container">
+
+    </div>
+    <script>
+        
+    const productName = localStorage.getItem("selectedProductName");
+    console.log("Loaded Product Name:", productName);
+    
+</script>
+    </script>
+  </div>
+    <script src="mockData.js"></script>
+    <script src="item.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+.box {
+    position: relative;
+      border: 2px solid blue;
+      border-radius: 10px;
+      width: 40vw;
+      height: 50vh;
+      margin: 15vh 5vh 0vh 10vh;
+      overflow: hidden;
+      cursor: pointer;
+  }
+  .box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(128, 128, 128, 0.6); /* semi-transparent gray */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .box:hover img {
+    transform: scale(1.05);
+  }
+  
+  .box:hover .overlay {
+    opacity: 1;
+  }
+  /* Fade In and Out Keyframes */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+  
+  /* Initial state (invisible) */
+  body {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards;
+  }
+  
+  /* When leaving page */
+  body.fade-out {
+    animation: fadeOut 0.5s ease-out forwards;
+  }
+  .dis{
+    display: inline-flex;
+  }
+  

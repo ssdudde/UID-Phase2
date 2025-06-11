@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Cart</title>
+  <link rel="stylesheet" href="../styles/menubar.css" />
+  <style>
+    .cart-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #f5f5f5;
+      border-radius: 10px;
+    }
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #ccc;
+      padding: 10px 0;
+    }
+    .cart-item img {
+      width: 100px;
+      height: auto;
+    }
+    .cart-item-details {
+      flex-grow: 1;
+      margin-left: 20px;
+    }
+    .cart-total {
+      text-align: right;
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .remove-btn {
+      padding: 5px 10px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="#" id="navi">E-com</a>
+    <nav>
+      <a href="index.html" id="navi">Home</a>
+      <a href="products.html" id="navi">Products</a>
+      <a href="cart.html" id="navi">Cart</a>
+
+    </nav>
+  </header>
+
+  <div class="cart-container" id="cart-container"></div>
+
+  <script>
+    function renderCart() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const container = document.getElementById('cart-container');
+      container.innerHTML = '<h2>Your Cart</h2>';
+
+      if (cart.length === 0) {
+        container.innerHTML += '<p>Your cart is empty.</p>';
+        return;
+      }
+
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        const itemPrice = parseFloat(item.price.replace(/[^\d.-]/g, ''));
+        total += itemPrice * item.quantity;
+
+        container.innerHTML += `
+          <div class="cart-item">
+            <img src="${item.image}" alt="${item.title}" />
+            <div class="cart-item-details">
+              <h3>${item.title}</h3>
+              <p>Price: ${item.price}</p>
+              <p>Quantity: ${item.quantity}</p>
+              <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML += `<div class="cart-total">Total: ₹${total.toFixed(2)}</div>`;
+    }
+
+    function removeItem(index) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+
+    document.addEventListener("DOMContentLoaded", renderCart);
+  </script>
+</body>
+</html>
