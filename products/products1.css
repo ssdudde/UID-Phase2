@@ -1,10 +1,14 @@
+.top_box {
+  margin: 15vh 5vh 5vh 10vh;
+}
+
 .box {
   position: relative;
   border: 2px solid blue;
   border-radius: 10px;
   width: 40vw;
   height: 50vh;
-  margin: 15vh 5vh 0vh 10vh;
+  margin: 2vh 5vh 10vh 10vh;
   overflow: hidden;
   cursor: pointer;
   display: inline-flex;
@@ -115,7 +119,7 @@ body.fade-out {
   .box {
     width: 40vw;
     height: 20vh;
-    margin: 12vh 0vw 2vh 5vw;
+    margin: 5vh 0vw 0vh 5vw;
   }
 
   .product-layout{
