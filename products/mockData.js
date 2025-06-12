@@ -47,8 +47,7 @@ const mockData = {
         price: "₹12,999",
         image: "images/keyboards/LogGpro_.jpg",
         description: "The Logitech G Pro X is a tournament-grade mechanical gaming keyboard with swappable switches, compact tenkeyless design, detachable cable, and customizable LIGHTSYNC RGB. Built for pro-level performance and durability, it’s the choice of top esports athletes worldwide."
-      }
-     
+      },     
     ],
     monitors: [
       {

@@ -1,16 +1,23 @@
 async function hashPassword(password) {
+    // Convert the password string to a Uint8Array
     const encoder = new TextEncoder();
     const data = encoder.encode(password);
+    
+    // Hash the data using SHA-256
     const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    
+    // Convert the hash buffer to a hex string
     const hashArray = Array.from(new Uint8Array(hashBuffer));
-    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    
+    return hashHex;
 }
 
 async function Submit() {
     const currentMode = document.getElementById("picker").innerText;
 
     let error = "";
-    if (currentMode === "Login") {
+    if (currentMode === "Login"){
         const name = document.getElementById("uname").value.trim();
         const pass = document.getElementById("pass").value.trim();
 
@@ -21,8 +28,7 @@ async function Submit() {
             error = "No password entered.";
             document.getElementById("pass").style.border = "3px solid red";
         }
-    }
-    else if (currentMode === "Sign Up") {
+    } else if (currentMode === "Sign Up") {
         const name = document.getElementById("uname").value.trim();
         const email = document.getElementById("email").value.trim();
         const pass = document.getElementById("pass").value.trim();
@@ -51,7 +57,6 @@ async function Submit() {
             document.getElementById("pass2").style.border = "3px solid red";
         }
     }
-
     if (error) {
         document.getElementById("error").style.opacity = "1";
         document.getElementById("error").style.display = "block";
@@ -76,35 +81,46 @@ async function Submit() {
     }
     
     error = "";
-    const response = await fetch('../assets/database/database.json');
-    if (!response.ok) {
-        throw new Error('Network response was not ok');
-    }
-    const userData = await response.json();
 
     if (currentMode === "Login") {
         const name = document.getElementById("uname").value.trim();
         const pass = document.getElementById("pass").value.trim();
         const hashedPass = await hashPassword(pass);
-        
-        const user = Object.values(userData).find(u => (u.username === name || u.email === name) && u.password === hashedPass);
+        let userData;
+        try {
+            const storedData = localStorage.getItem('users');
+            userData = storedData ? JSON.parse(storedData) : { users: [] }; 
+        } catch (e) {
+            userData = { users: [] };
+        }
+
+        const user = userData.users.find(u => (u.username === name || u.email === name) && u.password === hashedPass);
         if (!user) {
             error = "Invalid username or password";
             document.getElementById("uname").style.border = "3px solid red";
             document.getElementById("pass").style.border = "3px solid red";
         } else {
-            window.location.href = "../index.html";
+            window.location.href = "../home/index.html";
         }
+
     } else if (currentMode === "Sign Up") {
         const name = document.getElementById("uname").value.trim();
         const email = document.getElementById("email").value.trim();
         const pass = document.getElementById("pass").value.trim();
         const hashedPass = await hashPassword(pass);
         
-        if (Object.values(userData).some(u => u.username === name)) {
+        let userData;
+        try {
+            const storedData = localStorage.getItem('users');
+            userData = storedData ? JSON.parse(storedData) : { users: [] };
+        } catch (e) {
+            userData = { users: [] };
+        }
+        
+        if (userData.users.some(u => u.username === name)) {
             error = "Username already exists";
             document.getElementById("uname").style.border = "3px solid red";
-        } else if (Object.values(userData).some(u => u.email === email)) {
+        } else if (userData.users.some(u => u.email === email)) {
             error = "Email already registered";
             document.getElementById("email").style.border = "3px solid red";
         } else {
@@ -113,16 +129,9 @@ async function Submit() {
                 email: email,
                 password: hashedPass
             };
-            let currentData;
-            try {
-                const storedData = localStorage.getItem('users');
-                currentData = storedData ? JSON.parse(storedData) : { users: [] };
-            } catch (e) {
-                currentData = { users: [] };
-            }
-            currentData.users = [...currentData.users, newUser];
-            localStorage.setItem('users', JSON.stringify(currentData));
-            window.location.href = "../index.html";
+            userData.users.push(newUser);
+            localStorage.setItem('users', JSON.stringify(userData));
+            window.location.href = "../home/index.html";
         }
     }
     if (error) {
