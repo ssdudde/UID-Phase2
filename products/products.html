@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="products1.css">
 </head>
 <body>
-     <header>
+  <header>
     <a href="../home/index.html" id="navi">GlitchRush</a>
     <nav>
-      <a href="#" id="navi">About</a>
+      <a href="../home/index.html#" id="navi">About</a>
       <div class="dropdown">
         <a href="index.html" id="navi" class="trigger-link">Products</a>
         <div class="dropdown-content">
@@ -23,21 +23,19 @@
         </div>
       </div>
       <a href="#" id="navi">Contact</a>
-      <a href="#" id="navi">Cart</a>
-      <a href="#" id="navi">Login</a>
-
+      <a href="cart.html" id="navi">Cart</a>
+      <a href="../login/index.html" id="navi">Login</a>
     </nav>
   </header>
- <hr>
-    
+  <hr>
     <div id="product-container"></div>
 
       
 <script>
     const productId = localStorage.getItem("selectedProductId");
     console.log("Loaded Product ID:", productId);
-    
 </script>
+
 <script src="mockData.js"></script>
 <script src="script.js"></script>
 </body>

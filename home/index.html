@@ -18,6 +18,23 @@
       }
     }
   </script>
+  <script>
+      function addToCart(price, image, title) {
+    // Get cart array or initialize
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Check if product already exists in cart
+    const index = cart.findIndex(item => item.title === title);
+    if (index > -1) {
+        cart[index].quantity += 1; // increase quantity
+    } else {
+        cart.push({ title, price, image, quantity: 1 });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert("Item added to cart!");
+  }
+  </script>
   <link rel="icon" href="data:,">
 </head> 
 
@@ -62,7 +79,7 @@
           <strong>Features:</strong> Hot-swappable switches, dynamic RGB, aircraft-grade aluminum.
         </p>
         <span class="limited-badge">LIMITED</span>
-        <button class="buy-now" on-click="onclick="addToCart('₹14,499','images/keyboards/logg515s.webp', 'Logitech G515 LIGHTSPEED TKL Wireless Gaming Keyboard')">Buy Now</button>
+        <button class="buy-now" onclick="addToCart('₹14,499','images/keyboards/logg515s.webp', 'Logitech G515 LIGHTSPEED TKL Wireless Gaming Keyboard')">Buy Now</button>
       </div>
     </div>
   </section>
@@ -151,14 +168,14 @@
 </section>
   <script type="module" src="script.js"></script>
   <script>
-  document.querySelector('.about-scroll').addEventListener('click', function (e) {
-  e.preventDefault();
-  const aboutSection = document.getElementById('about');
-  if (aboutSection) {
-    aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-});
-</script>
+    document.querySelector('.about-scroll').addEventListener('click', function (e) {
+    e.preventDefault();
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+  </script>
 
 </body>
 </html>

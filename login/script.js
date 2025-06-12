@@ -99,8 +99,7 @@ async function Submit() {
             error = "Invalid username or password";
             document.getElementById("uname").style.border = "3px solid red";
             document.getElementById("pass").style.border = "3px solid red";
-        } else {
-            window.location.href = "../home/index.html";
+            return;
         }
 
     } else if (currentMode === "Sign Up") {
@@ -120,9 +119,11 @@ async function Submit() {
         if (userData.users.some(u => u.username === name)) {
             error = "Username already exists";
             document.getElementById("uname").style.border = "3px solid red";
+            return;
         } else if (userData.users.some(u => u.email === email)) {
             error = "Email already registered";
             document.getElementById("email").style.border = "3px solid red";
+            return;
         } else {
             const newUser = {
                 username: name,
@@ -131,7 +132,6 @@ async function Submit() {
             };
             userData.users.push(newUser);
             localStorage.setItem('users', JSON.stringify(userData));
-            window.location.href = "../home/index.html";
         }
     }
     if (error) {
@@ -155,6 +155,22 @@ async function Submit() {
             document.getElementById("email").style.border = "2px solid blue";
         }, 2000);
         return;
+    } else {
+        const card = document.querySelector('.card');
+        let msg = "Your account has been created successfully.";
+        if (currentMode=="Login"){
+            msg = "Logged in successsfully.";
+        }
+        card.innerHTML = `
+            <div style="text-align: center; padding: 2rem;">
+                <p style="color: #4CAF50; font-size: 4em; margin-top: 1em;">Success!</h2>
+                <p style="font-size: 2em; margin-top: 1.5em;">${msg}</p>
+                <p style="font-size: 2em;">Redirecting to home page...</p>
+            </div>
+        `;
+        setTimeout(() => {
+            window.location.href = "../home/index.html";
+        }, 2000);
     }
 }
 
