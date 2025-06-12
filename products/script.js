@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const productCat = localStorage.getItem("selectedProductId");
-    
+
     if (!productCat) {
       console.error("Product ID not found in localStorage.");
       return;

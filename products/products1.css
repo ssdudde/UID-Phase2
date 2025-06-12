@@ -1,27 +1,29 @@
 .box {
   position: relative;
-    border: 2px solid blue;
-    border-radius: 10px;
-    width: 40vw;
-    height: 50vh;
-    margin: 15vh 5vh 0vh 10vh;
-    overflow: hidden;
-    cursor: pointer;
-    display: inline-flex;
+  border: 2px solid blue;
+  border-radius: 10px;
+  width: 40vw;
+  height: 50vh;
+  margin: 15vh 5vh 0vh 10vh;
+  overflow: hidden;
+  cursor: pointer;
+  display: inline-flex;
 }
+
 .box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
+
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(128, 128, 128, 0.6); /* semi-transparent gray */
+  background-color: rgba(128, 128, 128, 0.6);
   color: white;
   display: flex;
   justify-content: center;
@@ -31,6 +33,7 @@
   opacity: 0;
   transition: opacity 0.3s ease;
 }
+
 .box:hover img {
   transform: scale(1.05);
 }
@@ -56,53 +59,74 @@ body {
 }
 
 /* When leaving page */
-body.fade-out {f
+body.fade-out {
   animation: fadeOut 0.5s ease-out forwards;
 }
+
 .product-details {
-      font-family: Arial, sans-serif;
-      color:white;
-      padding: 5vw;
-      width: 70vw;
-    }
+  font-family: Arial, sans-serif;
+  color:white;
+  padding: 5vw;
+  width: 70vw;
+}
 
-    .product-title {
-      font-size: 30px;
-      font-weight: bold;
-      color: white;
-    }
+.product-title {
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+}
 
-    .product-price {
-      font-size: 30px;
-      color: green;
-      margin: 30px 0;
-    }
+.product-price {
+  font-size: 30px;
+  color: green;
+  margin: 30px 0;
+}
 
-    .product-description {
-      line-height: 1.6;
-      margin: 2em 0em;
-      color:white;
-    }
+.product-description {
+  line-height: 1.6;
+  margin: 2em 0em;
+  color:white;
+}
 
-    .button-container {
-      margin-top: 2em;
-    }
+.button-container {
+  margin-top: 2em;
+}
 
-    .button-container button {
-      padding: 10px 20px;
-      margin-right: 10px;
-      font-size: 16px;
-      cursor: pointer;
-      border: none;
-      border-radius: 4px;
-    }
+.button-container button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
 
-    .buy-now {
-      background-color: white;
-      color: black;
-    }
+.buy-now {
+  background-color: white;
+  color: black;
+}
 
-    .add-to-cart {
-      background-color: white;
-      color: black;
-    }
+.add-to-cart {
+  background-color: white;
+  color: black;
+}
+
+@media screen and (max-width: 500px) {
+  .box {
+    width: 40vw;
+    height: 20vh;
+    margin: 12vh 0vw 2vh 5vw;
+  }
+
+  .product-layout{
+    margin-top: 10vh;
+  }
+
+  .product-title{
+    font-size: 1em;
+  }
+
+  .product-description {
+    font-size: 0.8em;
+  }
+}

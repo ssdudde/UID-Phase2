@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Use 'product' inside the map, not 'items'
     productLayout.innerHTML = items.map(product => `
-        <div class="box" style="height: 60vh; width: 60vw">
+        <div class="box">
             <img src="${product.image}" alt="${product.title}" />
             <div class="overlay">${product.title}</div>
         </div>

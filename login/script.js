@@ -133,6 +133,7 @@ async function Submit() {
             userData.users.push(newUser);
             localStorage.setItem('users', JSON.stringify(userData));
         }
+        alert("here");
     }
     if (error) {
         document.getElementById("error").style.opacity = "1";
@@ -176,6 +177,7 @@ async function Submit() {
 
 document.addEventListener("DOMContentLoaded", function () {
     const chooser = document.getElementById("chooser");
+
     chooser.addEventListener("click", function () {
         const currenttext = document.getElementById("picker").innerText;
         if (currenttext == "Login"){
