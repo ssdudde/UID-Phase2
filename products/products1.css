@@ -1,18 +1,21 @@
-.top_box {
-  margin: 15vh 5vh 5vh 10vh;
-}
-
 .box {
   position: relative;
   border: 2px solid blue;
   border-radius: 10px;
-  width: 60vw;
+  width: 40vw;
   height: 50vh;
-  margin: 2vh 5vh 10vh 10vh;
+  margin: 2vh 5vh 7vh 10vh;
   overflow: hidden;
   cursor: pointer;
   display: inline-flex;
 }
+
+.top_box {
+  margin: 5vh 5vh 5vh 10vh;
+  width: 60vw;
+  height: 55vh;
+}
+
 
 .box img {
   width: 100%;
@@ -115,14 +118,24 @@ body.fade-out {
   color: black;
 }
 
+#product-container {
+  margin-top: 15vh; 
+  margin-bottom: 0vh;
+}
+
 @media screen and (max-width: 500px) {
-  .box {
+  .box, .top_box {
     width: 40vw;
-    height: 40vh;
+    height: 25vh;
     margin: 5vh 0vw 0vh 5vw;
   }
 
   .product-layout{
+    margin-top: 10vh;
+    display: block;
+  }
+
+  #product-container {
     margin-top: 10vh;
   }
 
