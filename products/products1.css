@@ -6,7 +6,7 @@
   position: relative;
   border: 2px solid blue;
   border-radius: 10px;
-  width: 40vw;
+  width: 60vw;
   height: 50vh;
   margin: 2vh 5vh 10vh 10vh;
   overflow: hidden;
@@ -118,7 +118,7 @@ body.fade-out {
 @media screen and (max-width: 500px) {
   .box {
     width: 40vw;
-    height: 20vh;
+    height: 40vh;
     margin: 5vh 0vw 0vh 5vw;
   }
 
