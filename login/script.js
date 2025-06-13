@@ -1,12 +1,9 @@
 async function hashPassword(password) {
-    // Convert the password string to a Uint8Array
     const encoder = new TextEncoder();
     const data = encoder.encode(password);
     
     // Hash the data using SHA-256
     const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-    
-    // Convert the hash buffer to a hex string
     const hashArray = Array.from(new Uint8Array(hashBuffer));
     const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
     
@@ -99,7 +96,6 @@ async function Submit() {
             error = "Invalid username or password";
             document.getElementById("uname").style.border = "3px solid red";
             document.getElementById("pass").style.border = "3px solid red";
-            return;
         }
 
     } else if (currentMode === "Sign Up") {
@@ -133,7 +129,6 @@ async function Submit() {
             userData.users.push(newUser);
             localStorage.setItem('users', JSON.stringify(userData));
         }
-        alert("here");
     }
     if (error) {
         document.getElementById("error").style.opacity = "1";
