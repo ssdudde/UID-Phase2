@@ -31,11 +31,11 @@ camera.lookAt(0, 1, 0); // Looking at centre
 
 // OrbitControls for interactive rotation
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true;
+controls.enableDamping = true;//for making object  seem like it has weight
 controls.enablePan = false;
 controls.minDistance = 5;
 controls.maxDistance = 20;
-controls.minPolarAngle = 0.5;
+controls.minPolarAngle = 0.5;//vertical angle
 controls.maxPolarAngle = 1.5;
 controls.autoRotate = false;
 controls.target = new THREE.Vector3(0, 1, 0);
